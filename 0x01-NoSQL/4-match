@@ -1,0 +1,3 @@
+// script that lists all documents with name="Holberton school" in the collection school.
+use my_db;
+db.school.find({name: "Holberton school"}).pretty();
