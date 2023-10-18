@@ -4,7 +4,9 @@ Module for the Cache class
 """
 import redis
 import uuid
-from typing import Union
+from typing import Union, Callable, Optional
+
+from redis.commands.core import ResponseT
 
 
 class Cache:
@@ -27,3 +29,26 @@ class Cache:
         self._redis.set(key, data)
 
         return key
+
+    def get(self, key: str, fn: Optional[Callable]) -> ResponseT:
+        """
+        Get the data
+        """
+        data = self._redis.get(key)
+
+        if fn:
+            return fn(data)
+        else:
+            return data
+
+    def get_str(self, key: str) -> ResponseT:
+        """
+        Get the data as string
+        """
+        return self.get(key, str)
+
+    def get_int(self, key: str) -> ResponseT:
+        """
+        Get the data as int
+        """
+        return self.get(key, int)
