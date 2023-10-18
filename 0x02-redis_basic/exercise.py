@@ -4,9 +4,9 @@ Module for the Cache class
 """
 import redis
 import uuid
-from typing import Union, Callable, Optional
+from typing import Union  # Callable, Optional
 
-from redis.commands.core import ResponseT
+# from redis.commands.core import ResponseT
 
 
 class Cache:
