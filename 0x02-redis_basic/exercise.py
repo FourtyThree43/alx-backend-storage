@@ -30,25 +30,25 @@ class Cache:
 
         return key
 
-    def get(self, key: str, fn: Optional[Callable]) -> ResponseT:
-        """
-        Get the data
-        """
-        data = self._redis.get(key)
+    # def get(self, key: str, fn: Optional[Callable]) -> ResponseT:
+    #     """
+    #     Get the data
+    #     """
+    #     data = self._redis.get(key)
 
-        if data is not None and fn is not None:
-            return fn(data)
+    #     if data is not None and fn is not None:
+    #         return fn(data)
 
-        return data
+    #     return data
 
-    def get_str(self, key: str) -> ResponseT:
-        """
-        Get the data as string
-        """
-        return self.get(key, fn=lambda d: d.decode("utf-8"))
+    # def get_str(self, key: str) -> ResponseT:
+    #     """
+    #     Get the data as string
+    #     """
+    #     return self.get(key, fn=lambda d: d.decode("utf-8"))
 
-    def get_int(self, key: str) -> ResponseT:
-        """
-        Get the data as int
-        """
-        return self.get(key, fn=int)
+    # def get_int(self, key: str) -> ResponseT:
+    #     """
+    #     Get the data as int
+    #     """
+    #     return self.get(key, fn=int)
