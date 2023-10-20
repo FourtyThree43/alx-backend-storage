@@ -1,0 +1,2 @@
+// Query the 'school' collection for documents with names starting with 'Holberton'
+db.school.find({ name: { $regex: /^Holberton/ } }).forEach(printjson);
