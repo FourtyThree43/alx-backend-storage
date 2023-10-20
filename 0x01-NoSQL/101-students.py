@@ -3,11 +3,12 @@
 This module contains the function that returns all students
 sorted by average score
 """
-from pymongo.collection import Collection
-from pymongo.command_cursor import CommandCursor
+from pymongo import collection, command_cursor
 
 
-def top_students(mongo_collection: Collection) -> CommandCursor:
+def top_students(
+        mongo_collection: collection.Collection
+) -> command_cursor.CommandCursor:
     """
     Returns all students sorted by average score
     """
